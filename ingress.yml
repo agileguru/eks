@@ -5,15 +5,8 @@ metadata:
   namespace: default
   labels:
     kcert.dev/ingress: "managed"
-  annotations:
-    kubernetes.io/ingress.class: "nginx"
-    ingress.kubernetes.io/rewrite-target: /
-    nginx.ingress.kubernetes.io/from-to-www-redirect: "true"
-    nginx.ingress.kubernetes.io/configuration-snippet: |
-      if ($host = '' ) {
-        rewrite ^ https://www.$request_uri permanent;
-      }
 spec:
+  ingressClassName: "nginx"
   tls:
   - hosts:
     - radhika.agileguru.org
